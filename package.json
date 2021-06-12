@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js",
+    "start": "ENVIRONMENT=prod BABEL_DISABLE_CACHE=1 babel-node src/index.js",
     "dev": "nodemon src/index.js --exec babel-node"
   },
   "keywords": [],
@@ -24,7 +24,6 @@
     "@babel/node": "^7.8.7",
     "@babel/preset-env": "^7.9.6",
     "babel-plugin-dotenv": "^0.1.1",
-    "babel-polyfill": "^6.26.0",
-    "nodemon": "^2.0.7"
+    "babel-polyfill": "^6.26.0"
   }
 }
