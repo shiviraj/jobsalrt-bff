@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js",
+    "start": "ENVIRONMENT=prod BABEL_DISABLE_CACHE=1 babel-node src/index.js",
     "dev": "nodemon src/index.js --exec babel-node"
   },
   "keywords": [],
