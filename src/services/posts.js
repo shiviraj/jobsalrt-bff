@@ -32,6 +32,10 @@ const PostsService = {
   getOptions(payload) {
     return Posts.getOptions(payload);
   },
+
+  getSearchOptions(payload) {
+    return Posts.getSearchOptions(payload);
+  }
 }
 
 export default PostsService

@@ -19,6 +19,10 @@ const Posts = {
     return API.get(`${BASE_PATH}/options/${key}/${payload[key]}`);
   },
 
+  getSearchOptions(payload) {
+    return API.get(`${BASE_PATH}/search-options/${payload}`);
+  },
+
 }
 
 export {Posts}

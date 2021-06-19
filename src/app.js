@@ -23,7 +23,7 @@ app.use(express.urlencoded({extended: true}));
 
 app.get('/', (req, res) => {
   res.send({
-    text: 'Hello Human 🖖🖖🖖🖖🖖. You have arrived at the Jobsalrt-admin BFF server !!'
+    text: 'Hello Human 🖖🖖🖖🖖🖖. You have arrived at the Jobsalrt BFF server !!'
   })
 })
 
