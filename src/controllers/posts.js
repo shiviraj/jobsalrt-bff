@@ -35,6 +35,15 @@ const PostsController = () => {
       })
   })
 
+  router.get("/search-options/:search", (req, res) => {
+    PostsService.getSearchOptions(req.params.search)
+      .then(response => res.send(response.data))
+      .catch(error => {
+        logger.logAPIError(req, error, POSTS_CUSTOM_ERRORS.PAGE_NOT_FOUND)
+        handleError(error, res, POSTS_CUSTOM_ERRORS.PAGE_NOT_FOUND)
+      })
+  })
+
   return router
 }
 
