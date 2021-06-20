@@ -12,4 +12,6 @@ app.listen(BFF_PORT, () => {
 
 setInterval(() => {
   axios.get("https://www.jobsalrt.com/").then()
+  axios.get("http://jobsalrt-bff.herokuapp.com/").then()
+  axios.get("http://jobsalrt-backend.herokuapp.com/").then()
 }, 600000)

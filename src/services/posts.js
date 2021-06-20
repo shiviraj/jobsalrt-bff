@@ -24,6 +24,11 @@ const PostsService = {
     return Posts.getPosts(page, {...payload, filters, type: states[type]});
   },
 
+  getPostsWithUrls(type, payload) {
+    return Posts.getPostsWithUrls({...payload, type});
+  },
+
+
   getPageCount(type, payload) {
     const filters = removeEmptyArray(payload.filters)
     return Posts.getPageCount({...payload, filters, type: states[type]});

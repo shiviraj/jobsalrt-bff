@@ -26,6 +26,15 @@ const PostsController = () => {
       })
   })
 
+  router.post('/type/:type', (req, res) => {
+    PostsService.getPostsWithUrls(req.params.type, req.body)
+      .then(response => res.send(response.data))
+      .catch(error => {
+        logger.logAPIError(req, error, POSTS_CUSTOM_ERRORS.NOT_FOUND)
+        handleError(error, res, POSTS_CUSTOM_ERRORS.NOT_FOUND)
+      })
+  })
+
   router.get("/options", (req, res) => {
     PostsService.getOptions(req.query)
       .then(response => res.send(response.data))

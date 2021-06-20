@@ -10,6 +10,10 @@ const Posts = {
     return API.post(`${BASE_PATH}/page/${page}`, payload);
   },
 
+  getPostsWithUrls(payload) {
+    return API.post(`${BASE_PATH}`, payload);
+  },
+
   getPageCount(payload) {
     return API.post(`${BASE_PATH}/page-count`, payload);
   },
