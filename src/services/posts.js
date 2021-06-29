@@ -1,7 +1,7 @@
 import {Posts} from "../API/posts";
 
 const removeEmptyArray = obj => {
-  const validKeys = ["location", "qualification", "formType", "ageLimit", "vacancies"]
+  const validKeys = ["location", "qualification", "formType", "ageLimit", "vacancies", "company"]
   return Object.keys(obj).reduce((newObj, key) => {
     if (obj[key].length && validKeys.includes(key)) newObj[key] = obj[key]
     return newObj
