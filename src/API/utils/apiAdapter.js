@@ -1,6 +1,5 @@
 import axios from 'axios'
 import httpContext from 'express-http-context'
-import logger from '../../logging/logger'
 
 const addHeaders = req => {
   const headersToPass = httpContext.get('headers')
@@ -24,14 +23,11 @@ const adapter = (baseURL = 'http://localhost:8080') => {
   api.interceptors.request.use(request => {
     addHeaders(request)
     addRequestStartedAtHeader(request)
-    logger.requestInfo(request)
     return request
   })
 
   api.interceptors.response.use(response => {
     addResponseTimeHeader(response)
-    logger.responseInfo(response)
-
     return response;
   })
 

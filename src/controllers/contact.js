@@ -1,13 +1,13 @@
 import express from 'express'
-import {POSTS_CUSTOM_ERRORS} from "../errorMaps/posts.errors";
 import {handleError} from "../utils/errorHandlers";
-import PostService from "../services/post";
+import ContactService from "../services/contact";
+import {POSTS_CUSTOM_ERRORS} from "../errorMaps/posts.errors";
 
-const PostController = () => {
+const ContactController = () => {
   const router = express.Router()
 
-  router.get("/:url", (req, res) => {
-    PostService.getPostByUrl(req.params.url)
+  router.post('', (req, res) => {
+    ContactService.save(req.body)
       .then(response => res.send(response.data))
       .catch(error => {
         handleError(error, res, POSTS_CUSTOM_ERRORS.PAGE_NOT_FOUND)
@@ -17,4 +17,4 @@ const PostController = () => {
   return router
 }
 
-export {PostController}
+export {ContactController}
