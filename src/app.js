@@ -4,10 +4,10 @@ import httpContext from 'express-http-context'
 import {getRouter} from './router'
 import {filterHeaders} from './utils/headers'
 import {initEncryption} from "./crypto/crypto";
+import handleDocs from "./services/handleDocs";
 
-let app = express()
+const app = express();
 
-// Set content type GLOBALLY for any response.
 app.use(function (req, res, next) {
   res.contentType('application/json')
   next()
@@ -22,9 +22,11 @@ app.use((req, res, next) => {
 app.use(express.json({limit: '1mb'}));
 app.use(express.urlencoded({extended: true}));
 
+app.use(["/skr", "/jsk", "/rjr"], handleDocs)
+
 app.get('/', (req, res) => {
   res.send({
-    text: 'Hello Human 🖖🖖🖖🖖🖖. You have arrived at the Jobsalrt BFF server !!'
+    text: 'Hello Human 🖖🖖🖖🖖🖖. You have arrived at the Jobsalrt Docs server !!'
   })
 })
 
