@@ -9,6 +9,9 @@ const Post = {
   getPostByUrl(url) {
     return API.get(`${BASE_PATH}/${url}`);
   },
+  updateViewsByUrl(url) {
+    return API.get(`${BASE_PATH}/${url}/update-views`);
+  },
 }
 
 export {Post}

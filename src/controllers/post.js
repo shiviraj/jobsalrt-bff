@@ -14,6 +14,14 @@ const PostController = () => {
       })
   })
 
+  router.get("/:url/update-views", (req, res) => {
+    PostService.updateViewsByUrl(req.params.url)
+      .then(response => res.send(response.data))
+      .catch(error => {
+        handleError(error, res, POSTS_CUSTOM_ERRORS.PAGE_NOT_FOUND)
+      })
+  })
+
   return router
 }
 
