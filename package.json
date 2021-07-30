@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ENVIRONMENT=prod BABEL_DISABLE_CACHE=1 babel-node src/index.js",
-    "dev": "nodemon src/index.js --exec babel-node"
+      "test": "echo \"Error: no test specified\" && exit 0",
+      "start": "ENVIRONMENT=prod BABEL_DISABLE_CACHE=1 babel-node src/index.js",
+      "dev": "nodemon src/index.js --exec babel-node"
   },
   "keywords": [],
   "author": "Shiviraj",
