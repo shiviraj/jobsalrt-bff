@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 
 app.use(initEncryption)
 
-app.use(cors({origin: process.env.ALLOWED_ORIGIN || "http://localhost:3000"}))
+app.use(cors())
 app.use('/api', getRouter())
 
 app.disable('x-powered-by')
