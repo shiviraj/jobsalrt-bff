@@ -1,0 +1,37 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: jobsalrt-bff
+  namespace: default
+  labels:
+    app: jobsalrt-bff
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jobsalrt-bff
+  template:
+    metadata:
+      labels:
+        app: jobsalrt-bff
+    spec:
+      containers:
+        - name: jobsalrt-bff
+          image: "artifactory/jobsalrt-bff:latest"
+          ports:
+            - containerPort: 3001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jobsalrt-bff
+  namespace: default
+spec:
+  selector:
+    app: jobsalrt-bff
+  type: LoadBalancer
+  ports:
+    - name: http
+      targetPort: 3001
+      port: 80
